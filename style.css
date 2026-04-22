@@ -414,7 +414,7 @@ header {
 /* Stats Banner */
 .stats-banner {
     padding: 40px 0;
-    margin-top: -40px;
+    margin-top: 20px;
     position: relative;
     z-index: 20;
 }
@@ -483,8 +483,24 @@ header {
     cursor: default;
 }
 
-.skill-tag i {
-    transition: color 0.3s ease;
+.skill-tag i, .skill-icon {
+    transition: all 0.3s ease;
+}
+
+.skill-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 8px;
+    filter: grayscale(0.5);
+    opacity: 0.8;
+}
+
+.skill-tag:hover .skill-icon {
+    filter: grayscale(0);
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .skill-tag:hover {
