@@ -67,9 +67,9 @@ const auth = firebase.auth();
 //        allow write: if isAdmin();
 //      }
 //
-//      // Settings: any admin can read, first user can create, primary can update
+//      // Settings: any logged-in user can read to check admin status, first user can create
 //      match /settings/admin {
-//        allow read: if isAdmin();
+//        allow read: if request.auth != null;
 //        allow create: if request.auth != null && !exists(/databases/$(database)/documents/settings/admin);
 //        allow update, delete: if isPrimaryAdmin();
 //      }
