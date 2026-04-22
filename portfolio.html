@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Gallery | Anuhas Nethsara</title>
+    <meta name="description" content="A curated collection of my best work - YouTube thumbnails, branding, and promotional designs.">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .filter-container {
+            position: sticky;
+            top: 80px;
+            z-index: 900;
+            background: rgba(5,5,5,0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .filter-btn {
+            background: var(--bg-surface-solid);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 12px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+        }
+        
+        .filter-btn:hover {
+            background: rgba(139, 92, 246, 0.1);
+            color: white;
+            border-color: var(--accent-1);
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            padding: 60px 20px;
+            margin: 100px auto 40px;
+            max-width: 900px;
+        }
+        
+        @media (max-width: 768px) {
+            .filter-buttons {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                justify-content: flex-start;
+                -webkit-overflow-scrolling: touch;
+            }
+            .filter-btn {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="nav-inner glass-panel">
+            <a href="index.html" class="nav-brand">Ken<span>G</span>SL</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#work">Work</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="portfolio.html" class="active btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Gallery</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="section" style="padding-bottom: 0; padding-top: 150px; text-align: center;">
+        <div class="container animate-on-scroll">
+            <h1 class="section-title">My <span class="text-gradient">Design Gallery</span></h1>
+            <p class="section-subtitle" style="max-width: 600px; margin: 0 auto;">A curated collection of my best work covering YouTube thumbnails, branding, and high-impact social media promotional designs.</p>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <div class="filter-container animate-on-scroll delay-1">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Work</button>
+                <button class="filter-btn" data-filter="thumbnail">YouTube Thumbnails</button>
+                <button class="filter-btn" data-filter="promotion">Promotional</button>
+                <button class="filter-btn" data-filter="social">Social Media</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <main class="container" style="min-height: 50vh;">
+        <div class="portfolio-grid" id="portfolioGrid">
+            <!-- Rendered by script.js -->
+        </div>
+
+        <div class="cta-banner animate-on-scroll">
+            <h2 class="section-title" style="font-size: 2rem;">Ready to boost your clicks?</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 30px;">Let's create thumbnails and designs that get results.</p>
+            <a href="index.html#contact" class="btn btn-primary">Start a Project</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-brand">Ken<span style="color:var(--accent-1)">G</span>SL</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <p class="footer-copy">© 2026 Anuhas Nethsara (KenGSL). All rights reserved. | Sri Lanka</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="modal-backdrop" id="lightboxModal">
+        <button class="modal-close" aria-label="Close lightbox"><i class="fas fa-times"></i></button>
+        <img src="" alt="Enlarged Portfolio View" class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

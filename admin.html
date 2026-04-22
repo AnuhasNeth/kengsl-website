@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - KenGSL Portfolio</title>
+    <meta name="robots" content="noindex, nofollow">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .admin-card {
+            max-width: 900px;
+            width: 100%;
+            padding: 50px;
+        }
+        .step-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: border-color 0.3s ease;
+        }
+        .step-box:hover {
+            border-color: var(--border-hover);
+        }
+        .step-box h2 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .step-box h2 i {
+            color: var(--accent-1);
+        }
+        .step-box ol {
+            margin-left: 20px;
+            color: var(--text-secondary);
+        }
+        .step-box li {
+            margin-bottom: 12px;
+        }
+        code, .code-block {
+            background: var(--bg-main);
+            padding: 15px;
+            border-radius: var(--border-radius-sm);
+            font-family: monospace;
+            color: var(--accent-2);
+            display: block;
+            margin: 15px 0;
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+        th {
+            background: rgba(255,255,255,0.05);
+            color: var(--text-primary);
+        }
+        .success-box {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid #10b981;
+            color: #10b981;
+            padding: 20px;
+            border-radius: var(--border-radius-sm);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        @media (max-width: 768px) {
+            .admin-card { padding: 30px 20px; }
+            table { display: block; overflow-x: auto; white-space: nowrap; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-panel admin-card fade-in-up">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; flex-wrap: wrap; gap: 20px;">
+            <h1 class="section-title" style="margin: 0;"><i class="fas fa-database text-gradient"></i> Admin Panel</h1>
+            <a href="index.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Website</a>
+        </div>
+
+        <p style="color: var(--text-secondary); margin-bottom: 40px; font-size: 1.1rem;">
+            Manage your portfolio items using Google Sheets. Because this portfolio is integrated dynamically, 
+            any changes you make to the sheet will automatically and instantly appear on your website!
+        </p>
+
+        <div class="step-box">
+            <h2><i class="fas fa-table"></i> Step 1: Create or Edit Your Google Sheet</h2>
+            <ol>
+                <li>Go to <a href="https://sheets.new/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-1); text-decoration: underline;">sheets.new</a></li>
+                <li>Ensure you have these EXACT column headers in Row 1:</li>
+            </ol>
+            <table>
+                <thead>
+                    <tr><th>id</th><th>title</th><th>category</th><th>categoryDisplay</th><th>description</th><th>result</th><th>image</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Gaming Stream</td><td>thumbnail</td><td>YouTube Thumbnail</td><td>High-impact gaming...</td><td>40% CTR</td><td>https://example.com/img.png</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="step-box">
+            <h2><i class="fas fa-globe"></i> Step 2: Publish Your Sheet</h2>
+            <ol>
+                <li>In Google Sheets, click <strong>File → Share → Publish to web</strong></li>
+                <li>Under "Link", select: <strong>Entire Document</strong> and <strong>Comma-separated values (.csv)</strong></li>
+                <li>Click <strong>Publish</strong> and copy the generated link. It will look like this:</li>
+            </ol>
+            <div class="code-block">https://docs.google.com/spreadsheets/d/e/2PACX-1vXXXXX/pub?output=csv</div>
+        </div>
+
+        <div class="step-box">
+            <h2><i class="fas fa-code"></i> Step 3: Update script.js</h2>
+            <ol>
+                <li>If you ever create a NEW sheet, quickly open <strong>script.js</strong> on your website codebase.</li>
+                <li>Replace the <code>GOOGLE_SHEET_URL</code> constant variable at the very top.</li>
+                <li>Deploy to Netlify and you're good to go!</li>
+            </ol>
+        </div>
+
+        <div class="success-box">
+            <i class="fas fa-check-circle" style="font-size: 1.5rem;"></i>
+            <div>
+                <strong>You're all set!</strong> As long as your sheet is published and columns match, everything is synced automatically. 
+                <br><span style="font-size: 0.9rem; opacity: 0.8;">Note: The category column should strictly be 'thumbnail', 'promotion', or 'social' to match the gallery filters.</span>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="portfolio.html" class="btn btn-primary" style="margin-right: 15px;"><i class="fas fa-images"></i> View Gallery</a>
+            <a href="https://docs.google.com/spreadsheets/u/0/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-external-link-alt"></i> Open Google Sheets</a>
+        </div>
+
+    </div>
+
+    <!-- Inline toggleMenu for admin page (no script.js dependency needed) -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks) navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
