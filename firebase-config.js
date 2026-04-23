@@ -23,14 +23,15 @@
 // ============================================================
 
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCdAfNlcYNTIw3QGE-XqkPviTkgd7OQpzg",
-  authDomain: "kengsl-d7d2e.firebaseapp.com",
-  projectId: "kengsl-d7d2e",
-  storageBucket: "kengsl-d7d2e.firebasestorage.app",
-  messagingSenderId: "805938998989",
-  appId: "1:805938998989:web:e35db96bb27ef642730384",
-  measurementId: "G-JT4467YDPS"
+  apiKey: "AIzaSyABUuoODoo5C4Gn9TZ9szqRqvH2jwODyX8",
+  authDomain: "keng-website.firebaseapp.com",
+  projectId: "keng-website",
+  storageBucket: "keng-website.firebasestorage.app",
+  messagingSenderId: "604759215203",
+  appId: "1:604759215203:web:ec3663c7a6ccf1d66afc56",
+  measurementId: "G-57ZCZDH8KM"
 };
 
 firebase.initializeApp(firebaseConfig);
